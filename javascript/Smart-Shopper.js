@@ -223,7 +223,7 @@ $(".btn-back-homepage").click(function(e) {
 });
 
 $(".btn-back-search").click(function(e) {
-  window.location="scan-search-recipes.html";
+  window.location="Scan-Search-Recipes.html";
 });
 
 $("#pops").click(function() {
