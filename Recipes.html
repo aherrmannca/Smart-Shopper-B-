@@ -1,0 +1,61 @@
+<html>
+<head>
+  <title>Smart Shopper Project</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Adrian Herrmann, Sally Lee, Young Cho">
+
+  <link href="css/Smart-Shopper.css" rel="stylesheet">
+  <!-- Might include link href if adding .css files-->
+
+</head>
+  <body>
+    <div>
+      <button class="btn-back">
+        <h2 class="back-arrow">&#8249;<h3 class="back">&nbsp; Back</h3></h2>
+      </button>
+    </div>
+
+    <div class="center-recipes">
+      <div class="profile-text">
+        <h3><b>Suggested Recipes</b></h3>
+      </div>
+
+      <div>
+        <a id="recipe1" class="recipes" target="_blank">oo</a>
+      </div>
+
+      <div>
+        <a id="recipe2" class="recipes" target="_blank">weg</a>
+      </div>
+    </div>
+
+
+    <!-- Including JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="javascript/Smart-Shopper.js"></script>
+    <script>
+      var imgName = localStorage.getItem("imageName");
+
+      if (imgName == "images/Wine.png") {
+        $("#recipe1").attr("href", "https://www.epicurious.com/recipes/food/views/beef-braised-in-red-wine-236986?fbclid=IwAR0nm9-U1w2s9AWr9S6SX1yWcDKDHLcFFd_PzhfYm-Tamze_oH3vIxUz3bk");
+        $("#recipe1").text("Beef Braised Red Wine");
+        $("#recipe2").attr("href", "https://www.101cookbooks.com/archives/lentils-with-wineglazed-vegetables-recipe.html?fbclid=IwAR0QCNEATx46slOgNAuKyJhQO4wWUVUlil-LDkmTm-38p4Ia7pKjHgCI6OQ");
+        $("#recipe2").text("Lentils with Wine-Glazed Vegetables");
+      }
+      else if (imgName == "images/Oreos.png") {
+        $("#recipe1").attr("href", "https://lovingitvegan.com/mini-vegan-chocolate-oreo-cheesecakes/");
+        $("#recipe1").text("Vegan Chocolate Oreo Cheesecake");
+        $("#recipe2").attr("href", "http://www.crazyvegankitchen.com/vegan-oreo-peanut-butter-pie/");
+        $("#recipe2").text("Vegan Oreo Peanut Butter Pie");
+      }
+      else if (imgName == "images/Pops.png") {
+        $("#recipe1").attr("href", "https://www.tablefortwoblog.com/corn-pop-treats/");
+        $("#recipe1").text("Corn Pop Treats");
+        $("#recipe2").attr("href", "https://www.geniuskitchen.com/recipe/corn-pops-snack-mix-155452");
+        $("#recipe2").text("Corn Pops Snack Mix");
+      }
+    </script>
+  </body>
+</html>

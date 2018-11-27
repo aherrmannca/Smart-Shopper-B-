@@ -1,0 +1,118 @@
+<html>
+<head>
+  <title>Smart Shopper Project</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Adrian Herrmann, Sally Lee, Young Cho">
+
+  <link href="css/Smart-Shopper.css" rel="stylesheet">
+  <!-- Might include link href if adding .css files-->
+
+</head>
+  <body id="home-img" onload="openDefault()">
+    <div id="bar-white">
+
+    <div>
+    <!-- Creating the homepage title -->
+    <div>
+      <h1 class="header"><b>Smart&nbsp;Shopper</b></h1>
+    </div>
+
+    <div class="center-tabcontent">
+      <!-- Tab links -->
+      <div class="tab">
+        <button class="tablinks" id= "defaultOpen" onclick="openLogin(event, 'create-account')">Create&nbsp;Account</button>
+        <button class="tablinks" onclick="openLogin(event, 'login')">Login</button>
+      </div>
+
+      <!-- Tab content -->
+      <div id="create-account" class="tabcontent">
+        <br></br>
+        <div>
+          <h3 class="list-name">&nbsp;Username</h3>
+        </div>
+
+        <div>
+          <input type="text" class="create-account-text" placeholder="Enter Username...">
+        </div>
+
+        <br></br>
+
+        <div>
+          <h3 class="list-name">&nbsp;Password</h3>
+        </div>
+
+        <div>
+          <input type="password" class="create-account-text" placeholder="Enter Password...">
+        </div>
+
+        <br></br>
+
+        <div>
+          <h3 class="list-name">&nbsp;Re-enter&nbsp;Password</h3>
+        </div>
+
+        <div>
+          <input type="password" class="create-account-text" placeholder="Re-enter Password...">
+
+          <button class="to-lists" class="create-user">
+            <h3 class="continue">Continue <h2 class="arrow">&nbsp;&#8250;</h2></h3>
+          </button>
+        </div>
+
+      </div>
+
+      <div id="login" class="tabcontent">
+        <br></br>
+        <div>
+          <h3 class="list-name">&nbsp;Username</h3>
+        </div>
+
+        <div>
+          <input id="usercode" type="text" class="create-account-text" placeholder="Enter Username...">
+        </div>
+
+        <br></br>
+
+        <div>
+          <h3 class="list-name">&nbsp;Password</h3>
+        </div>
+
+        <div>
+          <input id="passcode" type="password" class="create-account-text" placeholder="Enter Password...">
+
+          <button class="continue-login" class="create-user">
+            <h3 id="user-login">Continue <h2 class="arrow">&nbsp;&#8250;</h2></h3>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <script>
+      // Get the element with id="defaultOpen" and click on it
+      function openDefault() {
+        //reset localStorage of lists when on login screen
+        localStorage.setItem('listsInfo', []);
+        localStorage.setItem('productsInfo', []);
+        document.getElementById("defaultOpen").click();
+      }
+    </script>
+
+    <div id="bar-green" class="helptxt">
+      <h1 style="margin-top: 1%;"><u>About Us</u></h1>
+      <h3 id="about">Smart Shopper is an app that helps
+        users who have dietary restrictions/allergens detect harmful ingredients
+        in their products and view suggested recipes that involve the specific
+        produce they are searching. You can customize your dietary restrictions
+        list and get results in a matter of seconds.</h3>
+    </div>
+    </div>
+
+    <!-- Including JavaScript -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="javascript/Smart-Shopper.js"></script>
+  </div>
+  </body>
+</html>

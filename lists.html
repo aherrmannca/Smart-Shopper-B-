@@ -1,0 +1,105 @@
+<html>
+<head>
+  <title>Smart Shopper Project</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Adrian Herrmann, Sally Lee, Young Cho">
+
+  <link href="css/Smart-Shopper.css" rel="stylesheet">
+  <!-- Might include link href if adding .css files-->
+
+</head>
+  <body id="home-img" onload="openDefault()">
+    <div id="bar-white">
+
+    <button class="btn-logout">
+      <h2 class="back-arrow">&#8249;<h3 class="back">&nbsp; Logout</h3></h2>
+    </button>
+    <font size="1" style="position: relative; top: -7px;">
+      -Your lists will be deleted if you logout
+    </font>
+    <div>
+    <div class="center-tabcontent-list">
+      <!-- Tab links -->
+      <div class="tab">
+        <button class="tablinks" id= "defaultOpen" onclick="openLogin(event, 'create-account')">Create&nbsp;a&nbsp;New&nbsp;List</button>
+        <button class="tablinks" onclick="openLogin(event, 'login')">Use&nbsp;an&nbsp;Existing&nbsp;List</button>
+      </div>
+
+      <!-- Tab content -->
+      <div id="create-account" class="tabcontent">
+
+
+          <div>
+            <h2>Choose&nbsp;a&nbsp;Preset&nbsp;List</h2>
+            <select id="presets">
+              <option value="none">None</option>
+              <option value="gluten">Gluten Free</option>
+              <option value="ketogenic">Ketogenic Diet</option>
+              <option value="vegan">Vegan</option>
+              <option value="vegetarian">Vegetarian diet</option>
+            </select>
+            <b>(You can still modify this list)<b>
+          </div>
+
+          <div class="profile-text">
+            <h5>List Name</h5>
+          </div>
+
+          <div>
+            <input type="text" autofocus="autofocus" id="name-text" placeholder="Name of your List...">
+          </div>
+
+          <div class="profile-text">
+            <h5>Restrictions</h5>
+          </div>
+            <button id="add" class="add-new">+ Add</button>
+
+        <div>
+          <button id="save-list" class="to-scan-search">
+            <h3 class="continue">Continue <h2 class="arrow">&nbsp;&#8250;</h2></h3>
+          </button>
+        </div>
+      </div>
+
+      <div id="login" class="tabcontent">
+        <h2>Choose&nbsp;a&nbsp;Previously&nbsp;Created&nbsp;List</h2>
+        <h3>
+        <form action="">
+          <font id="load-lists" color="red">Create a list and it will be saved here!</font>
+        </form>
+      </h3>
+
+        <div>
+          <button id="save-selection" class="to-scan-search">
+            <h3 class="continue">Continue <h2 class="arrow">&nbsp;&#8250;</h2></h3>
+          </button>
+        </div>
+
+    </div>
+
+    </div>
+    <script>
+      // Get the element with id="defaultOpen" and click on it
+      function openDefault() {
+        var lists = JSON.parse(localStorage.getItem('listsInfo') || "[]");
+        console.log(lists.length);
+        for (var i=0; i < lists.length; i++) {
+          var name = "\"" + lists[i]['listName'] + "\"";
+          console.log(name);
+          $("#load-lists").replaceWith("<input type='radio'" + " name='list-name' value=" + name + "> " + lists[i]['listName'] + "<br><br>" +
+                          "<dummy id='load-lists'></dummy>");
+
+        }
+
+        document.getElementById("defaultOpen").click();
+      }
+    </script>
+
+    <!-- Including JavaScript -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="javascript/Smart-Shopper.js"></script>
+    </div>
+  </body>
+</html>

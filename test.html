@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Create Object from JSON String</h2>
+
+<p id="demo"></p>
+
+<script>
+
+var addNewProduct = function (productName) {
+    // retrieve it (Or create a blank array if there isn't any info saved yet),
+    var products = JSON.parse(localStorage.getItem('productsInfo') || "[]");
+    // add to it,
+    products.push(productName);
+    // then put it back.
+    localStorage.setItem('productsInfo', JSON.stringify(products));
+}
+/*
+addNewProduct('beef');
+addNewProduct('chicken');
+*/
+restrictions = JSON.parse(localStorage.getItem('productsInfo'));
+
+document.getElementById("demo").innerHTML = restrictions[4];
+
+/*
+var students = [];
+students.push({name:"a",roll:"9",age:13});
+students.push({name:"b",roll:"10",age:14});
+students.push({name:"c",roll:"11",age:15});
+
+document.getElementById("demo").innerHTML = students[0]['name'] + ", " + students[0]['age'];*/
+</script>
+
+</body>
+</html>

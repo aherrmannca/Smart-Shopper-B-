@@ -1,0 +1,144 @@
+<html>
+<head>
+  <title>Smart Shopper Project</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Adrian Herrmann, Sally Lee, Young Cho">
+
+  <link href="css/Smart-Shopper.css" rel="stylesheet">
+  <!-- Might include link href if adding .css files-->
+
+</head>
+  <body>
+    <div>
+      <button class="btn-back-search">
+        <h2 class="back-arrow">&#8249;<h3 class="back">&nbsp; Check Another Product</h3></h2>
+      </button>
+    </div>
+
+    <div class="center-results">
+      <div>
+        <img width="200" src="" height="200" id="result-img"/>
+      </div>
+
+      <div>
+        <h2 id="not-safe">! SAFE TO EAT !</h2>
+      </div>
+
+      <div>
+        <h2 id="containing">Contains:<br></h2>
+        <dummy id="contains"></dummy>
+      </div>
+
+      <div>
+        <a id="dummy" class="recipes" href="Recipes.html">Recipes for this product!</a>
+      </div>
+    </div>
+
+    <!-- Including JavaScript -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="javascript/Smart-Shopper.js"></script>
+    <script>
+      $("#result-img").attr("src", localStorage.getItem("imageName"));
+      var imgName = localStorage.getItem("imageName");
+      var lists = JSON.parse(localStorage.getItem("listsInfo"));
+      var nameOfList = localStorage.getItem("currentList");
+      console.log(lists);
+      console.log(nameOfList);
+      // Get the list for the currently search restrictions
+      var list = [];
+      for (var i=0; i < lists.length; i++) {
+        if (lists[i]['listName'].localeCompare(nameOfList) == 0) {
+          list = lists[i];
+          break;
+        }
+      }
+      console.log(list);
+      var items = list['restrictions'].map(a => a.toLowerCase());
+
+      if (imgName == "images/Wine.png") {
+        var ingredients = ['wine', 'sugar', 'alcohol', 'sulfur dioxide', 'grape', 'water', 'yeast'];
+        var first = true;
+        for (var i=0; i < items.length; i++) {
+          for (var j=0; j < ingredients.length; j++) {
+            if (items[i].localeCompare(ingredients[j]) == 0) {
+              if(first) {
+                first = false;
+              }
+              $("#contains").replaceWith("<h2 class='checks'>&#10004; <h2>" +
+                            "&nbsp;" + items[i] + "</h2></h2>" +
+                            "<dummy id='contains'></dummy>")
+            }
+          }
+        }
+
+        if (first) {
+          document.getElementById("containing").innerText = "";
+          document.getElementById("not-safe").innerText = "! SAFE TO DRINK !";
+        }
+        else {
+          document.getElementById("not-safe").innerText = "! NOT SAFE TO DRINK !";
+          $("#dummy").replaceWith("");
+        }
+      }
+      else if (imgName == "images/Pops.png") {
+        var ingredients = ['pops', 'gluten', 'corn', 'sugar', 'corn syrup', 'molasses',
+                          'salt', 'partially hydrogenated vegetable oil'];
+        var first = true;
+        for (var i=0; i < items.length; i++) {
+          for (var j=0; j < ingredients.length; j++) {
+            if (items[i].localeCompare(ingredients[j]) == 0) {
+              if(first) {
+                first = false;
+              }
+              $("#contains").replaceWith("<h2 class='checks'>&#10004; <h2>" +
+                            "&nbsp;" + items[i] + "</h2></h2>" +
+                            "<dummy id='contains'></dummy>")
+            }
+          }
+        }
+
+        if (first) {
+          document.getElementById("containing").innerText = "";
+        }
+        else {
+          document.getElementById("not-safe").innerText = "! NOT SAFE TO EAT !";
+          $("#dummy").replaceWith("");
+        }
+      }
+      else if (imgName == "images/Oreos.png") {
+        var ingredients = ['oreos', 'gluten', 'sugar', 'palm oil', 'soybean oil', 'canola oil',
+                          'cocoa', 'high fructose corn syrup', 'salt', 'corn starch'];
+        var first = true;
+        for (var i=0; i < items.length; i++) {
+          for (var j=0; j < ingredients.length; j++) {
+            if (items[i].localeCompare(ingredients[j]) == 0) {
+              if(first) {
+                first = false;
+              }
+              $("#contains").replaceWith("<h2 class='checks'>&#10004; <h2>" +
+                            "&nbsp;" + items[i] + "</h2></h2>" +
+                            "<dummy id='contains'></dummy>")
+            }
+          }
+        }
+
+        if (first) {
+          document.getElementById("containing").innerText = "";
+        }
+        else {
+          document.getElementById("not-safe").innerText = "! NOT SAFE TO EAT !";
+          $("#dummy").replaceWith("");
+        }
+      }
+      else if (imgName != "images/Pops.png" && imgName != "images/Oreos.png") {
+        document.getElementById("check").replaceWith("");
+        document.getElementById("contains").replaceWith("");
+        document.getElementById("containing").replaceWith("");
+        document.getElementById("dummy").replaceWith("");
+        document.getElementById("not-safe").innerText = "PRODUCT NOT FOUND";
+      }
+    </script>
+  </body>
+</html>
