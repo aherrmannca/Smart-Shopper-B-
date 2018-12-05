@@ -358,10 +358,10 @@ div.center-search {
 /* Header for Smart Shopper login screen */
 .header {
   text-transform: uppercase;
-  font-family: "Simplifica";
+  font-family: "Gravitas One";
   vertical-align: center;
   text-align: center;
-  font-size: 90px;
+  font-size: 100px;
   padding: 40px;
   margin-top: 25px;
   position: relative;
@@ -518,6 +518,25 @@ div.center-search {
   outline: none;
 }
 
+.manage-lists {
+  font-size: 20px;
+  max-height: 30px;
+  float: right;
+  margin-right: 3vw;
+  margin-top: -3vh;
+
+  cursor: pointer;
+  background:none;
+  border: none;
+  outline: none;
+}
+
+#arrow-float {
+  float: right;
+  margin-right: -3vw;
+  margin-top: -8vh;
+}
+
 /* Button to go to search, scan, and recipes*/
 .to-scan-search-recipes {
   font-size: 20px;
@@ -528,12 +547,6 @@ div.center-search {
   background:none;
   border: none;
   outline: none;
-}
-
-
-@font-face {
-  font-family:"Simplifica";
-  src: url("../SIMPLIFICA/Simplifica_Typeface.ttf") format("truetype");
 }
 
 .helptxt {

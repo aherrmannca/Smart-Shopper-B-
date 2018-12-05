@@ -53,6 +53,12 @@ $("#save-list").click(function() {
   localStorage.setItem('productsInfo', []);
 });
 
+$("#passcode").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#user-login").click();
+    }
+});
+
 $("#user-login").click(function() {
     if ($(usercode).val() == "cogs120" && $(passcode).val() == "test") {
         addNewProduct('gluten');
@@ -214,6 +220,18 @@ $(document).on("keypress", "#restriction-text", function (e) {
   }
 });
 
+$("#search-text").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#results-click").click();
+    }
+});
+
+$("#create-enter").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#create-continue").click();
+    }
+});
+
 $(".btn-back").click(function(e) {
   window.history.back();
 });
@@ -272,6 +290,10 @@ $(".to-search").click(function(e) {
 
 $(".to-recipes").click(function(e) {
   window.location="Recipes.html";
+});
+
+$(".manage-lists").click(function(e) {
+  window.location="lists.html";
 });
 
 /* Go to results page */
